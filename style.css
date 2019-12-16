@@ -1,0 +1,7 @@
+#high-score{
+    color: #cccccc;
+}
+.container{
+   display:grid;
+   justify-content: center;
+}
