@@ -1,7 +1,15 @@
+body{
+    background-image: url("../Code-Quiz/cork-board/cork-board.png");
+}
+
 #high-score{
-    color: #cccccc;
+    color: #ffffff;
 }
 .container{
    display:grid;
    justify-content: center;
+   margin-top: 5%;
+}
+.jumbotron{
+    border: 15px double #444444;
 }
