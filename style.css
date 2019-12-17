@@ -13,3 +13,7 @@ body{
 .jumbotron{
     border: 15px double #444444;
 }
+#time-remaining {
+    color: #ffffff;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}

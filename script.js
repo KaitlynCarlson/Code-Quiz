@@ -1,17 +1,18 @@
-function quiz (){
-// Call functions up here
-// Clicking the start quiz button displays the first ((key up event on start quiz)) question and starts countdown timer
 
-// Function to run through questions
-// Final question  -- after response is logged display prompt to enter initials and display results
+    var secondsLeft = 40;
+    var countDown = document.getElementById("time-remaining");
 
 
-// Counter function -- if answer is incorrect deduct 10 seconds from time (40 seconds total with 4 questions)
-// Time remaining = user score -- store score on local storage
+    function setTime() {
+        var timerInterval = setInterval(function () {
+          --secondsLeft;
+          countDown.textContent = 'Time remaining '+ secondsLeft + ' seconds';
+      
+          if (secondsLeft === 0) {
+              clearInterval(timerInterval);
+          }
+        }, 1000);
+    }
 
 
-
-
-
-
-}
+document.getElementById("start-quiz").addEventListener("click", setTime);
