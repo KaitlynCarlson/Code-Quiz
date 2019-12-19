@@ -1,11 +1,11 @@
 var questions = [
     {
-        title : "Varaibles are the _________ of programming.",
+        title : "Variables are the _________ of programming.",
         choices : ["var","nouns","functions", "camel back"],
         answer : "nouns"
     },
     {
-        title : "What is the name of the value, in the context of JavaScript objects?",
+        title : "What is the 'name' of a value, in the context of JavaScript objects?",
         choices : ["null", "var","array","property"],
         answer : "property"
     },

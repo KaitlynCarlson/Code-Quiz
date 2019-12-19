@@ -4,7 +4,10 @@ body{
 
 #high-score{
     color: #ffffff;
+    font-family: Optima, sans-serif;
+    font-stretch: expanded;	
 }
+
 .container{
    display:grid;
    justify-content: center;
@@ -15,5 +18,10 @@ body{
 }
 #time-remaining {
     color: #ffffff;
-    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-family: Optima, sans-serif;
+    font-size: 17px;
+    font-stretch: expanded;
+}
+h1{
+    padding-bottom: 20px;
 }
