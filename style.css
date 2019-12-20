@@ -1,27 +1,31 @@
-body{
-    background-image: url("cork-board/cork-board.png");
+body {
+  background-image: url("cork-board/cork-board.png");
 }
 
-#high-score{
-    color: #ffffff;
-    font-family: Optima, sans-serif;
-    font-stretch: expanded;	
+#high-score {
+  color: #ffffff;
+  font-family: Optima, sans-serif;
+  font-stretch: expanded;
 }
 
-.container{
-   display:grid;
-   justify-content: center;
-   margin-top: 5%;
+.container {
+  margin-top: 5%;
 }
-.jumbotron{
-    border: 15px double #444444;
+.jumbotron {
+  border: 15px double #444444;
 }
 #time-remaining {
-    color: #ffffff;
-    font-family: Optima, sans-serif;
-    font-size: 17px;
-    font-stretch: expanded;
+  color: #ffffff;
+  font-family: Optima, sans-serif;
+  font-size: 17px;
+  font-stretch: expanded;
 }
-h1{
-    padding-bottom: 20px;
+h1 {
+  padding-bottom: 20px;
+}
+#choiceButtons {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 25%;
 }
