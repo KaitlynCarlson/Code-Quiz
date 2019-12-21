@@ -1,26 +1,3 @@
-// Set time variables
-var secondsLeft = 40;
-var countDown = document.getElementById("time-remaining");
-
-// Set time function
-function setTime() {
-  var timerInterval = setInterval(function() {
-    --secondsLeft;
-    countDown.textContent = "Time remaining: " + secondsLeft + " seconds";
-
-    if (secondsLeft === 0) {
-      clearInterval(timerInterval);
-    }
-  }, 1000);
-}
-function penaltyDeduct() {
-  secondsLeft -= 10;
-}
-
-document.getElementById("start-quiz").addEventListener("click", setTime);
-
-// Quiz question variables
-
 var accessQuestions = questions;
 var questionOne = questions[0].title;
 var questionTwo = questions[1].title;
@@ -34,6 +11,8 @@ var answerOne = questions[0].answer;
 var answerTwo = questions[1].answer;
 var answerThree = questions[2].answer;
 var answerFour = questions[3].answer;
+var secondsLeft;
+var countDown;
 
 $("#questions-jumbotron").hide();
 $("#quizCompleted").hide();
@@ -41,7 +20,31 @@ $("#history").hide();
 
 $("#start-quiz").on("click", function firstSet() {
   $("#home").hide();
+
   $("#questions-jumbotron").show();
+
+  // Set time function
+
+  secondsLeft = 40;
+  setInterval(function() {
+    --secondsLeft;
+
+    if (secondsLeft >= 0) {
+      $("#time-remaining").text("Time remaining " + secondsLeft + " remaining");
+    }
+    if (secondsLeft < 0) {
+      secondsLeft = 0;
+      $("#time-remaining").text("Time remaining " + secondsLeft + " remaining");
+    }
+
+    if ($("#questionAccuracy").text() === "Incorrect!") {
+      secondsLeft = secondsLeft - 10;
+    }
+  }, 1000);
+
+  // function penaltyDeduct() {
+  //   secondsLeft -= 10;
+  // }
 
   $("#questionDisplay").text(questionOne);
   $("#index-zero")
@@ -60,7 +63,6 @@ $("#start-quiz").on("click", function firstSet() {
   $(".choices-one").on("click", function() {
     if ($(this).text() !== answerOne) {
       $("#questionAccuracy").text("Incorrect!");
-      penaltyDeduct();
     } else if ($(this).text() === answerOne) {
       $("#questionAccuracy").text("Correct!");
     }
@@ -82,7 +84,6 @@ $("#start-quiz").on("click", function firstSet() {
     $(".choices-two").on("click", function() {
       if ($(this).text() !== answerTwo) {
         $("#questionAccuracy").text("Incorrect!");
-        penaltyDeduct();
       } else if ($(this).text() === answerTwo) {
         $("#questionAccuracy").text("Correct!");
       }
@@ -104,7 +105,6 @@ $("#start-quiz").on("click", function firstSet() {
       $(".choices-three").on("click", function() {
         if ($(this).text() !== answerThree) {
           $("#questionAccuracy").text("Incorrect!");
-          penaltyDeduct();
         } else if ($(this).text() === answerThree) {
           $("#questionAccuracy").text("Correct!");
         }
@@ -126,22 +126,20 @@ $("#start-quiz").on("click", function firstSet() {
         $(".choices-four").on("click", function() {
           if ($(this).text() !== answerFour) {
             $("#finalQuestionAccuracy").text("Incorrect!");
-            penaltyDeduct();
           } else if ($(this).text() === answerFour) {
             $("#finalQuestionAccuracy").text("Correct!");
           }
 
           $("#quizCompleted").show();
           $("#questions-jumbotron").hide();
-          $("#score").text("You scored" + secondsLeft);
+          $("#score").text("You scored " + secondsLeft);
 
           $("#initials-submit").on("click", function() {
             $("#quizCompleted").hide();
             $("#history").show();
 
             $("#codeQuizHome").on("click", function() {
-              $("#history").hide();
-              $("#home").show();
+              window.location.reload();
             });
           });
         });
