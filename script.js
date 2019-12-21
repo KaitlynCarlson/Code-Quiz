@@ -13,6 +13,10 @@ function setTime() {
     }
   }, 1000);
 }
+function penaltyDeduct() {
+  secondsLeft -= 10;
+}
+
 document.getElementById("start-quiz").addEventListener("click", setTime);
 
 // Quiz question variables
@@ -32,6 +36,8 @@ var answerThree = questions[2].answer;
 var answerFour = questions[3].answer;
 
 $("#questions-jumbotron").hide();
+$("#quizCompleted").hide();
+$("#history").hide();
 
 $("#start-quiz").on("click", function firstSet() {
   $("#home").hide();
@@ -52,6 +58,13 @@ $("#start-quiz").on("click", function firstSet() {
     .addClass("choices-one");
 
   $(".choices-one").on("click", function() {
+    if ($(this).text() !== answerOne) {
+      $("#questionAccuracy").text("Incorrect!");
+      penaltyDeduct();
+    } else if ($(this).text() === answerOne) {
+      $("#questionAccuracy").text("Correct!");
+    }
+
     $("#questionDisplay").text(questionTwo);
     $("#index-zero")
       .text(choicesTwo[0])
@@ -67,6 +80,13 @@ $("#start-quiz").on("click", function firstSet() {
       .addClass("choices-two");
 
     $(".choices-two").on("click", function() {
+      if ($(this).text() !== answerTwo) {
+        $("#questionAccuracy").text("Incorrect!");
+        penaltyDeduct();
+      } else if ($(this).text() === answerTwo) {
+        $("#questionAccuracy").text("Correct!");
+      }
+
       $("#questionDisplay").text(questionThree);
       $("#index-zero")
         .text(choicesThree[0])
@@ -82,19 +102,39 @@ $("#start-quiz").on("click", function firstSet() {
         .addClass("choices-three");
 
       $(".choices-three").on("click", function() {
+        if ($(this).text() !== answerThree) {
+          $("#questionAccuracy").text("Incorrect!");
+          penaltyDeduct();
+        } else if ($(this).text() === answerThree) {
+          $("#questionAccuracy").text("Correct!");
+        }
+
         $("#questionDisplay").text(questionFour);
         $("#index-zero")
-          .text(choiceFour[0])
+          .text(choicesFour[0])
           .addClass("choices-four");
         $("#index-one")
           .text(choicesFour[1])
           .addClass("choices-four");
         $("#index-two")
-          .text(choiceFour[2])
+          .text(choicesFour[2])
           .addClass("choices-four");
         $("#index-three")
-          .text(choiceFour[3])
+          .text(choicesFour[3])
           .addClass("choices-four");
+
+        $(".choices-four").on("click", function() {
+          if ($(this).text() !== answerFour) {
+            $("#finalQuestionAccuracy").text("Incorrect!");
+            penaltyDeduct();
+          } else if ($(this).text() === answerFour) {
+            $("#finalQuestionAccuracy").text("Correct!");
+          }
+
+          $("#quizCompleted").show();
+          $("#questions-jumbotron").hide();
+          $("#score").text("You scored" + secondsLeft);
+        });
       });
     });
   });
