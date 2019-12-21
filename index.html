@@ -84,7 +84,7 @@
             autocomplete="off"
           ></button>
           <hr class="my-4" />
-          <p id="questionAccuracy"></p>
+          <p class="lead" id="questionAccuracy"></p>
         </div>
       </div>
     </div>
@@ -99,6 +99,7 @@
         />
         <br />
         <button
+          id="initials-submit"
           type="button"
           class="btn btn-outline-dark"
           data-toggle="button"
@@ -111,28 +112,32 @@
         <p id="finalQuestionAccuracy"></p>
       </div>
     </div>
-  
-  
-    <div class = "container">
-      <div id = "history" class="jumbotron">
-        <h1 class = "display-4"> High Score History</h1>
-        <div id="highscoreDisplay" ></div"highscoreDisplay">
-          <button
-            id="index-three"
-            type="button"
-            class="btn btn-outline-dark"
-            data-toggle="button"
-            aria-pressed="false"
-            autocomplete="off"
-          >Code Quiz Home</button>
-          <button
-          id="index-three"
+
+    <div class="container">
+      <div id="history" class="jumbotron">
+        <h1 class="display-4">High Score History</h1>
+        <div id="highscoreDisplay"></div>
+        <hr id="my4" />
+        <button
           type="button"
           class="btn btn-outline-dark"
           data-toggle="button"
           aria-pressed="false"
           autocomplete="off"
-        >Clear High Score History</button>
+          id="codeQuizHome"
+        >
+          Code Quiz Home
+        </button>
+        <button
+          type="button"
+          class="btn btn-outline-dark"
+          data-toggle="button"
+          aria-pressed="false"
+          autocomplete="off"
+          id="clear"
+        >
+          Clear High Score History
+        </button>
       </div>
     </div>
 

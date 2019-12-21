@@ -134,6 +134,16 @@ $("#start-quiz").on("click", function firstSet() {
           $("#quizCompleted").show();
           $("#questions-jumbotron").hide();
           $("#score").text("You scored" + secondsLeft);
+
+          $("#initials-submit").on("click", function() {
+            $("#quizCompleted").hide();
+            $("#history").show();
+
+            $("#codeQuizHome").on("click", function() {
+              $("#history").hide();
+              $("#home").show();
+            });
+          });
         });
       });
     });
