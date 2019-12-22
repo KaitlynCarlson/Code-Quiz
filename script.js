@@ -99,24 +99,28 @@ $(document).ready(function() {
     .getElementById("initials-submit")
     .addEventListener("click", showHistory);
 
-  function showHistory(event) {
+  function showHistory() {
+    $(this).toggle();
     $("#quizCompleted").append($("#scoreTitle"));
     $("#quizCompleted").append($("#highscoreDisplay"));
     $("#quizCompleted").append($("#codeQuizHome"));
     $("#quizCompleted").append($("#clear"));
     init();
-    event.preventDefault();
-
-    var userScores;
-    var scoreList = document.querySelector("#highscoreDisplay");
-    var userName = document.querySelector("#userName");
-    var userScore = document.querySelector("#score");
-    //Storing high score to local storage
-    function init() {
-      var userScoreHistory = [userName, userScore];
-      localStorage.setItem("scoreKey", JSON.stringify(userScoreHistory));
-      var renderScore = JSON.parse(localStorage.getItem("scoreKey"));
-    }
   }
-  // global variables for high score
+  var userScores;
+  var scoreList = document.querySelector("#highscoreDisplay");
+  var userName = document.querySelector("#userName");
+  var userScore = document.querySelector("#score");
+
+  //Storing high score to local storage
+  function init() {
+    var userScoreHistory = [userName.value, userScore.innerHTML.substr(6, 8)];
+    localStorage.setItem("scoreKey", JSON.stringify(userScoreHistory));
+    var renderScore = JSON.parse(localStorage.getItem("scoreKey"));
+    $(scoreList).append(renderScore);
+  }
+  $("#codeQuizHome").on("click", function(event) {
+    window.location.reload();
+    event.preventDefault();
+  });
 });
