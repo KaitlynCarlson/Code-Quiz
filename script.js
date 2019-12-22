@@ -65,6 +65,7 @@ $(document).ready(function() {
       choiceNode.setAttribute("value", currentQuestion.choices[i]);
 
       choiceNode.textContent = currentQuestion.choices[i];
+      $(choiceNode).addClass("btn btn-outline-dark");
 
       // attach click event listener to each choice
       choiceNode.onclick = clickButton;
@@ -119,8 +120,10 @@ $(document).ready(function() {
     var renderScore = JSON.parse(localStorage.getItem("scoreKey"));
     $(scoreList).append(renderScore);
   }
+  function myFunction(event) {
+    event.preventDefault();
+  }
   $("#codeQuizHome").on("click", function(event) {
     window.location.reload();
-    event.preventDefault();
   });
 });
