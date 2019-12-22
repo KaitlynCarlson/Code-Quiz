@@ -12,7 +12,6 @@
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
       crossorigin="anonymous"
     />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   </head>
 
   <body>
@@ -48,47 +47,12 @@
         <h1 id="questionDisplay" class="display-4"></h1>
         <br />
         <div id="choiceButtons">
-          <button
-            id="index-zero"
-            type="button"
-            class="btn btn-outline-dark"
-            data-toggle="button"
-            aria-pressed="false"
-            autocomplete="off"
-          ></button>
-          <br />
-          <button
-            id="index-one"
-            type="button"
-            class="btn btn-outline-dark"
-            data-toggle="button"
-            aria-pressed="false"
-            autocomplete="off"
-          ></button>
-          <br />
-          <button
-            id="index-two"
-            type="button"
-            class="btn btn-outline-dark"
-            data-toggle="button"
-            aria-pressed="false"
-            autocomplete="off"
-          ></button>
-          <br />
-          <button
-            id="index-three"
-            type="button"
-            class="btn btn-outline-dark"
-            data-toggle="button"
-            aria-pressed="false"
-            autocomplete="off"
-          ></button>
           <hr class="my-4" />
           <p class="lead" id="questionAccuracy"></p>
         </div>
       </div>
     </div>
-    <div class="container">
+    <div class="container ">
       <div id="quizCompleted" class="jumbotron">
         <h1 class="display-4">JavaScript Code Quiz Completed</h1>
         <p id="score" class="lead"></p>
@@ -96,6 +60,7 @@
           class="form-control"
           type="text"
           placeholder="Enter your initals"
+          id="userName"
         />
         <br />
         <button
@@ -105,18 +70,18 @@
           data-toggle="button"
           aria-pressed="false"
           autocomplete="off"
+          onclick="showHistory()"
         >
           Submit
         </button>
         <hr id=" my-4" />
-        <p id="finalQuestionAccuracy"></p>
       </div>
     </div>
 
     <div class="container">
       <div id="history" class="jumbotron">
-        <h1 class="display-4">High Score History</h1>
-        <div id="highscoreDisplay"></div>
+        <h1 class="display-4" id="scoreTitle">High Score History</h1>
+        <ul id="highscoreDisplay"></ul>
         <hr id="my4" />
         <button
           type="button"
@@ -140,7 +105,7 @@
         </button>
       </div>
     </div>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="questions.js"></script>
     <script src="script.js"></script>
   </body>
