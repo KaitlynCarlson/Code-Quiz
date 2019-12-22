@@ -2,8 +2,7 @@
 
 A timed quiz on JavaScript basics that stores high scores.
 
-(Code Quiz Application) []https://kaitlyncarlson.github.io/Code-Quiz/
-(Code Quiz Application) []
+[Code Quiz Application](https://kaitlyncarlson.github.io/Code-Quiz/ "Code Quiz")
 
 ## Purpose
 
@@ -27,3 +26,5 @@ The Code Quiz works like this:
 ## Bugs
 
 At this stage, the application has a few bugs. The count down interval seems to continue counting down after the user has completed their quiz. If the counter reaches zero before the user has stored their score, it changes their score to zero.
+
+Local storage is also clearing out when the page refreshes. I will continue working to de bug this.

@@ -114,7 +114,7 @@ $(document).ready(function() {
   var userScore = document.querySelector("#score");
 
   //Storing high score to local storage
-  function init() {
+  function init(event) {
     var userScoreHistory = [userName.value, userScore.innerHTML.substr(6, 8)];
     localStorage.setItem("scoreKey", JSON.stringify(userScoreHistory));
     var renderScore = JSON.parse(localStorage.getItem("scoreKey"));
