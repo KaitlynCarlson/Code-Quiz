@@ -104,5 +104,39 @@ $(document).ready(function() {
     $("#quizCompleted").append($("#highscoreDisplay"));
     $("#quizCompleted").append($("#codeQuizHome"));
     $("#quizCompleted").append($("#clear"));
+    event.preventDefault();
+    init();
+    var score = userName.value.trim() + userScore.value;
+    if (userScore === "") {
+      return;
+    }
+    storeUser();
+  }
+  // global variables for high score
+
+  var userScores;
+  var scoreList = document.querySelector("#highscoreDisplay");
+  var userName = document.querySelector("#userName");
+  var userScore = document.querySelector("#score");
+
+  //Storing high score to local storage
+  function init() {
+    var storedScores = JSON.parse(localstorage.getItem("userScores"));
+    if (storedScores !== null) {
+      userScores = storedScores;
+    }
+    displayScores();
+  }
+  function displayScores() {
+    scoreList.innerHTML = "";
+    for (var i = 0; i < userScores.length; ++i) {
+      var userScores = userScores[i];
+      var li = document.createElement("li");
+      li.textContent = userScores;
+      li.setAttribute("data-index", i);
+    }
+  }
+  function storeUser() {
+    localStorage.setItem("userScores", JSON.stringify(userScores));
   }
 });
